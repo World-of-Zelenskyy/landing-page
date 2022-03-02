@@ -3,34 +3,16 @@
     <div class="row">
       <div class="hero-counter">
         <div class="counter">
-          <div class="counter__digit">
-            <div class="counter__digit__splitter"></div>
-            1
-          </div>
-          <div class="counter__digit">
-            <div class="counter__digit__splitter"></div>
-            0
-          </div>
-          <div class="counter__digit">
-            <div class="counter__digit__splitter"></div>
-            0
-          </div>
-          <div class="counter__digit">
-            <div class="counter__digit__splitter"></div>
-            5
-          </div>
-          <div class="counter__digit">
-            <div class="counter__digit__splitter"></div>
-            9
-          </div>
-          <div class="counter__digit">
-            <div class="counter__digit__splitter"></div>
-            2
+          <div v-for="(item, index) in digits" :key="index">
+            <div class="counter__digit">
+              <div class="counter__digit__splitter"></div>
+              {{ item }}
+            </div>
           </div>
         </div>
         <div class="counter__text">
           <div class="counter__text__currency">PLN</div>
-          <div class="counter__text__description">We've raised</div>
+          <div class="counter__text__description">We have raised</div>
         </div>
       </div>
     </div>
@@ -40,13 +22,19 @@
 <script>
 export default {
   name: "HeroCounter",
+  props: ["count"],
+  computed: {
+    digits() {
+      return this.count.toString().split("");
+    },
+  },
 };
 </script>
 
 <style scoped>
 .counter {
   display: flex;
-  padding: 4rem 0;
+  padding: 3rem 0;
   font-size: 5rem;
 }
 
@@ -56,6 +44,7 @@ export default {
 
 .counter__text__currency {
   font-size: 4rem;
+  line-height: 4rem;
 }
 
 .counter__digit {
@@ -64,13 +53,14 @@ export default {
   margin: 0 0.5rem;
   padding: 0.25rem 1.5rem;
   position: relative;
+  font-family: "Fredoka One", sans-serif;
 }
 
 .counter__digit__splitter {
-  height: 4px;
+  height: 3px;
   background: #0059c2;
   position: absolute;
-  top: calc(50% - 2px);
+  top: calc(50% - 1px);
   left: 0;
   right: 0;
 }

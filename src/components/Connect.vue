@@ -3,7 +3,9 @@
     <div class="row justify-content-center">
       <div class="col">
         <div class="connect">
-          <div class="connect-text">Mint your NFT: 4,342 / 10,000 NFTs</div>
+          <div class="connect-text">
+            Mint your NFT: <b>4,342 / 10,000 NFTs</b>
+          </div>
           <button class="btn btn-primary connect-button">
             Connect with MetaMask
           </button>
@@ -37,7 +39,7 @@ export default {
 .connect-button {
   color: black;
   border-radius: 2rem;
-  background: #ffd500;
+  background: #ffd700;
   padding: 0.75rem 1.5rem;
   margin-top: 1rem;
 }

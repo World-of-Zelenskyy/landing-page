@@ -23,4 +23,8 @@ export default {
   background: #ffffff;
   margin-top: 4rem;
 }
+
+.footer {
+  margin-bottom: 4rem;
+}
 </style>

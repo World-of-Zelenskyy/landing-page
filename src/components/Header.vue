@@ -33,7 +33,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .header__logo > img {
-  height: 4rem;
+  height: 3rem;
 }
 
 .raised_counter {
@@ -50,12 +50,12 @@ export default {
 }
 
 .header__links-item {
-  width: 4rem;
-  height: 4rem;
-  margin-left: 1.5rem;
+  width: 3rem;
+  height: 3rem;
+  margin-left: 1rem;
   background: #064c9f;
   border-radius: 50%;
-  padding: 1rem;
+  padding: 0.75rem;
   display: flex;
   justify-content: center;
 }

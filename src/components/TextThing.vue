@@ -1,9 +1,11 @@
 <template>
-  <div class="container">
-    <div class="row">
-      <div class="text-thing__header">{{ headerText }}</div>
-      <div class="text-thing__body">
-        <slot></slot>
+  <div class="container-sm">
+    <div class="col">
+      <div class="row text-thing">
+        <div class="text-thing__header">{{ headerText }}</div>
+        <div class="text-thing__body">
+          <slot></slot>
+        </div>
       </div>
     </div>
   </div>
@@ -17,12 +19,17 @@ export default {
 </script>
 
 <style scoped>
+.text-thing {
+  font-size: 1.125rem;
+}
+
 .text-thing__header {
-  color: #ffd500;
-  padding-bottom: 2rem;
+  color: #ffd700;
+  padding-bottom: 1rem;
 }
 
 .text-thing__body {
+  font-weight: 300;
   color: #fff;
 }
 </style>

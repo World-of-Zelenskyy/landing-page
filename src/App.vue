@@ -1,11 +1,12 @@
 <template>
   <div>
     <Header />
-    <HeroCounter />
+    <HeroCounter count="6942017" />
     <TextThing header-text="#worldofzelenskyy">
       World of Zelenskyy is a collection of 10,000 NFTS that honor the man, the
-      myth, the legend, Volodymyr Zelenskyy. Each NFT will be unique and
-      represent the glory that is Ukraine.
+      myth, the legend, Volodymyr Zelenskyy.
+      <br />
+      Each NFT will be unique and represent the glory that is Ukraine.
       <br /><br />
       The collection will be linked to the official Ukrainian ETH donation
       address so that there is no middle-man handling the money.
@@ -63,5 +64,16 @@ export default {
 body {
   background: #0059c2;
   font-family: "Lato", sans-serif;
+}
+
+@media (min-width: 1400px) {
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl,
+  .container-xxl {
+    max-width: 1040px;
+  }
 }
 </style>
