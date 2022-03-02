@@ -60,6 +60,14 @@ export default {
 .gallery {
   width: 100%;
   height: 24rem;
-  margin-bottom: 6rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+</style>
+
+<style>
+.next,
+.prev {
+  color: #ffd700 !important;
 }
 </style>

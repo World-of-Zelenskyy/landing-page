@@ -53,7 +53,8 @@ export default {
   margin: 0 0.5rem;
   padding: 0.25rem 1.5rem;
   position: relative;
-  font-family: "Fredoka One", sans-serif;
+  line-height: 8rem;
+  font-family: "Oswald", sans-serif;
 }
 
 .counter__digit__splitter {
