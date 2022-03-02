@@ -32,9 +32,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
 .header__logo > img {
-    height: 4rem;
+  height: 4rem;
 }
 
 .raised_counter {

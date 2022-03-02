@@ -29,12 +29,8 @@
           </div>
         </div>
         <div class="counter__text">
-            <div class="counter__text__currency">
-                PLN
-            </div>
-            <div class="counter__text__description">
-                We've raised
-            </div>
+          <div class="counter__text__currency">PLN</div>
+          <div class="counter__text__description">We've raised</div>
         </div>
       </div>
     </div>
@@ -51,20 +47,20 @@ export default {
 .counter {
   display: flex;
   padding: 4rem 0;
-font-size: 5rem;
+  font-size: 5rem;
 }
 
 .counter__text {
-    padding: 0 1rem;
+  padding: 0 1rem;
 }
 
 .counter__text__currency {
-    font-size: 4rem;
+  font-size: 4rem;
 }
 
 .counter__digit {
   background: #064c9f;
-  border-radius: .75rem;
+  border-radius: 0.75rem;
   margin: 0 0.5rem;
   padding: 0.25rem 1.5rem;
   position: relative;

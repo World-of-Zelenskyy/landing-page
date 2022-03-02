@@ -3,14 +3,14 @@
     <div class="row">
       <div class="col">
         <div class="footer__splitter"></div>
-        <Header/>
+        <Header />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Header from './Header.vue';
+import Header from "./Header.vue";
 export default {
   components: { Header },
   name: "FooterThing",
