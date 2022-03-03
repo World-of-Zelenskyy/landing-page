@@ -20,6 +20,10 @@ const Web3 = require("web3");
 
 import { jsonInterface } from "@/abi";
 
+const ETH_ADDRESS = "0x226085a82CD74e4A1778f73081D15Ed299bF1906";
+const NETWORK_ID = 4; // Staging (Rinkeby)
+const { ethereum } = window;
+
 export default {
   name: "ConnectThing",
   data: () => ({
@@ -28,28 +32,45 @@ export default {
   methods: {
     async connect() {
       {
-        if (window.ethereum) {
-          window.ethereum
+        const isMetaMaskInstalled = ethereum && ethereum.isMetaMask;
+
+        if (isMetaMaskInstalled) {
+          ethereum
             .request({ method: "eth_requestAccounts" })
-            .then((accounts) => {
-              window.web3 = new Web3(window.ethereum);
-              console.log(accounts);
-              // eslint-disable-next-line no-undef
-              const myContract = new web3.eth.Contract(
-                this.jsonInterface,
-                "0x226085a82CD74e4A1778f73081D15Ed299bF1906",
-                {
-                  from: accounts[0],
+            .then(async (accounts) => {
+              window.web3 = new Web3(ethereum);
+              try {
+                const networkId = await ethereum.request({
+                  method: "net_version",
+                });
+
+                if (networkId == NETWORK_ID) {
+                  // eslint-disable-next-line no-undef
+                  const myContract = new web3.eth.Contract(
+                    this.jsonInterface,
+                    ETH_ADDRESS,
+                    {
+                      from: accounts[0],
+                    }
+                  );
+                  myContract.methods.safeMint(1).send({
+                    from: accounts[0],
+                    value: "10000000000000000",
+                  });
+                } else {
+                  // TODO: Notify user something went wrong
+                  console.log("Connected to wrong network");
                 }
-              );
-              console.log(myContract.methods);
-              myContract.methods.safeMint(1).send({
-                from: accounts[0],
-                value: "10000000000000000",
-              });
-              debugger;
+              } catch (error) {
+                // TODO: Notify user something went wrong
+                console.log(error);
+              }
             });
+
           return true;
+        } else {
+          // TODO: Ask user to install Metamask
+          console.log("Metamask not installed");
         }
         return false;
       }
