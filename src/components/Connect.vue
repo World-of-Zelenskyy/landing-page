@@ -6,7 +6,7 @@
           <div class="connect-text">
             Mint your NFT: <b>4,342 / 10,000 NFTs</b>
           </div>
-          <button class="btn btn-primary connect-button">
+          <button class="btn btn-primary connect-button" @click="connect">
             Connect with MetaMask
           </button>
         </div>
@@ -16,8 +16,45 @@
 </template>
 
 <script>
+const Web3 = require("web3");
+
+import { jsonInterface } from "@/abi";
+
 export default {
   name: "ConnectThing",
+  data: () => ({
+    jsonInterface,
+  }),
+  methods: {
+    async connect() {
+      {
+        if (window.ethereum) {
+          window.ethereum
+            .request({ method: "eth_requestAccounts" })
+            .then((accounts) => {
+              window.web3 = new Web3(window.ethereum);
+              console.log(accounts);
+              // eslint-disable-next-line no-undef
+              const myContract = new web3.eth.Contract(
+                this.jsonInterface,
+                "0x226085a82CD74e4A1778f73081D15Ed299bF1906",
+                {
+                  from: accounts[0],
+                }
+              );
+              console.log(myContract.methods);
+              myContract.methods.safeMint(1).send({
+                from: accounts[0],
+                value: "10000000000000000",
+              });
+              debugger;
+            });
+          return true;
+        }
+        return false;
+      }
+    },
+  },
 };
 </script>
 

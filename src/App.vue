@@ -19,7 +19,7 @@
       While the brave people fight to protect their land, we must step up and
       help however we can.
       <br />
-      WoZ PFPs are meant to empower the symbol of their courageous presiden and
+      WoZ PFPs are meant to empower the symbol of their courageous president and
       support the people of Ukraine by directly linking the sales to their
       cause.
       <br /><br />
