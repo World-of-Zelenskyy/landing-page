@@ -23,7 +23,6 @@
 import { Carousel3d, Slide } from "vue-carousel-3d";
 
 const samples = require.context("../assets/samples", false, /^.*\.png$/);
-console.log(samples.keys());
 export default {
   name: "HeroCounter",
   components: { Carousel3d, Slide },
