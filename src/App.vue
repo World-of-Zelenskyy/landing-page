@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header />
-    <HeroCounter count="6942017" />
+    <HeroCounter :count="status.raised_usd_count" />
     <TextThing header-text="#worldofzelenskyy">
       World of Zelenskyy is a collection of 10,000 NFTs that honor the man, the
       myth, the legend, <b>Volodymyr Zelenskyy</b>. <br /><br />
@@ -11,17 +11,14 @@
       so there is no middle-man handling the money.
     </TextThing>
     <Gallery />
-    <Connect />
+    <Connect :mintedTokenCount="status.minted_token_count" />
     <TextThing header-text="You wonder what the hell?">
-      World of Zelensky was built with the goal to support the country of
-      Ukraine during these hard times.
+      World of Zelensky is a collection of 10,000 unique NFTs that depict
+      <b>Volodymyr Zelenskyy</b> as the courageous leader he is.
       <br />
-      While the brave people fight to protect their land, we must step up and
-      help however we can.
-      <br />
-      WoZ PFPs are meant to empower the symbol of their courageous president and
-      support the people of Ukraine by directly linking the sales to their
-      cause.
+      We live in a generation where PFPs open a new door for donating to the
+      cause while also enabling a unique form of spreading awareness. WoZ aims
+      to bridge donating with PFPs in a way that goes directly to the source.
       <br /><br />
       <b>100% of all sales and profits</b> from the collection and secondary
       market will be sent directly to the official Ukrainian ETH wallet:
@@ -44,13 +41,15 @@
         https://rinkeby.etherscan.io/token/0x38ed68ca9450fd87c9fccb241494b53296c193b6?a=0</a
       >
       <br /><br />
-      Let's help build a better world.
+      Time to build a better world.
     </TextThing>
     <Footer />
   </div>
 </template>
 
 <script>
+import axios from "axios";
+
 import Header from "./components/Header.vue";
 import TextThing from "./components/TextThing.vue";
 import HeroCounter from "./components/HeroCounter.vue";
@@ -67,6 +66,20 @@ export default {
     Footer,
     Connect,
     Gallery,
+  },
+  data() {
+    return {
+      status: {
+        minted_token_count: "????",
+        raised_eth_count: "????",
+        raised_usd_count: "????",
+      },
+    };
+  },
+  mounted() {
+    axios
+      .get("https://api.worldofzelensky.com/worldOfZelenskyStats")
+      .then((response) => (this.status = response.data));
   },
 };
 </script>

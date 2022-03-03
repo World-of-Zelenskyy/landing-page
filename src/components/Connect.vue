@@ -4,7 +4,7 @@
       <div class="col">
         <div class="connect">
           <div class="connect-text">
-            Mint your NFT: <b>4,342 / 10,000 NFTs</b>
+            Mint your NFT: <b>{{ mintedTokenCount }} / 10,000 NFTs</b>
           </div>
           <button class="btn btn-primary connect-button" @click="connect">
             Connect with MetaMask
@@ -26,6 +26,7 @@ const { ethereum } = window;
 
 export default {
   name: "ConnectThing",
+  props: ["mintedTokenCount"],
   data: () => ({
     jsonInterface,
   }),

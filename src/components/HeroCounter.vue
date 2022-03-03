@@ -11,7 +11,7 @@
           </div>
         </div>
         <div class="counter__text">
-          <div class="counter__text__currency">PLN</div>
+          <div class="counter__text__currency">USD</div>
           <div class="counter__text__description">We have raised</div>
         </div>
       </div>
