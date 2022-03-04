@@ -34,7 +34,7 @@ export default {
   methods: {
     toast_error(message) {
       this.$toast.error(message, {
-        timeout: false,
+        timeout: 10000,
         position: "bottom-right",
       });
     },
