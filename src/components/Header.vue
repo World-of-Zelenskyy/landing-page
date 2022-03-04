@@ -24,8 +24,8 @@
 export default {
   name: "HelloWorld",
   created() {
-    this.DISCORD_URL = "https://discord.gg/beep";
-    this.TWITTER_URL = "https://twitter.com/boop";
+    this.DISCORD_URL = "https://discord.gg/9rycrYxS";
+    this.TWITTER_URL = "https://twitter.com/WorldOfZelensky";
   },
 };
 </script>
