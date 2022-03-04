@@ -78,7 +78,7 @@ export default {
   },
   mounted() {
     axios
-      .get("https://api.worldofzelensky.com/worldOfZelenskyStats")
+      .get("https://api.worldofzelensky.com/production")
       .then((response) => (this.status = response.data));
   },
 };
