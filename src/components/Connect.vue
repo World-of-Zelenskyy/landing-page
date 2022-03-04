@@ -60,12 +60,22 @@ export default {
                     CONTRACT_ADDRESS,
                     {
                       from: accounts[0],
+                      gas: "30000000000000000",
                     }
                   );
-                  myContract.methods.mint(1).send({
-                    from: accounts[0],
-                    value: "30000000000000000",
-                  });
+                  myContract.methods
+                    .mint(2)
+                    .estimateGas({
+                      from: accounts[0],
+                    })
+                    .then((gas) => {
+                      console.log(gas);
+                      myContract.methods.mint(1).send({
+                        from: accounts[0],
+                        value: "30000000000000000",
+                        gas: gas,
+                      });
+                    });
                 } else {
                   this.toast_error("Connected to wrong network");
                 }
