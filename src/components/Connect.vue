@@ -32,6 +32,13 @@ export default {
     jsonInterface,
   }),
   methods: {
+    toast_error(message) {
+      this.$toast.error(message, {
+        timeout: false,
+        position: "bottom-right",
+      });
+    },
+
     async connect() {
       {
         const isMetaMaskInstalled = ethereum && ethereum.isMetaMask;
@@ -60,16 +67,16 @@ export default {
                     value: "30000000000000000",
                   });
                 } else {
-                  this.$toast.error("Connected to wrong network");
+                  this.toast_error("Connected to wrong network");
                 }
               } catch (error) {
-                this.$toast.error(error.toString());
+                this.toast_error(error.toString());
               }
             });
 
           return true;
         } else {
-          this.$toast.error("Metamask not installed");
+          this.toast_error("Metamask not installed");
         }
         return false;
       }
