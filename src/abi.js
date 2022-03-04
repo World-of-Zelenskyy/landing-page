@@ -1,6 +1,12 @@
 export const jsonInterface = [
   {
-    inputs: [],
+    inputs: [
+      {
+        internalType: "string",
+        name: "_initBaseURI",
+        type: "string",
+      },
+    ],
     stateMutability: "nonpayable",
     type: "constructor",
   },
@@ -77,19 +83,6 @@ export const jsonInterface = [
     anonymous: false,
     inputs: [
       {
-        indexed: false,
-        internalType: "address",
-        name: "account",
-        type: "address",
-      },
-    ],
-    name: "Paused",
-    type: "event",
-  },
-  {
-    anonymous: false,
-    inputs: [
-      {
         indexed: true,
         internalType: "address",
         name: "from",
@@ -110,32 +103,6 @@ export const jsonInterface = [
     ],
     name: "Transfer",
     type: "event",
-  },
-  {
-    anonymous: false,
-    inputs: [
-      {
-        indexed: false,
-        internalType: "address",
-        name: "account",
-        type: "address",
-      },
-    ],
-    name: "Unpaused",
-    type: "event",
-  },
-  {
-    inputs: [],
-    name: "MAX_TOKENS",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
   },
   {
     inputs: [
@@ -176,6 +143,19 @@ export const jsonInterface = [
   },
   {
     inputs: [],
+    name: "baseExtension",
+    outputs: [
+      {
+        internalType: "string",
+        name: "",
+        type: "string",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
     name: "baseURI",
     outputs: [
       {
@@ -188,16 +168,23 @@ export const jsonInterface = [
     type: "function",
   },
   {
-    inputs: [
+    inputs: [],
+    name: "cost",
+    outputs: [
       {
         internalType: "uint256",
-        name: "tokenId",
+        name: "",
         type: "uint256",
       },
     ],
-    name: "burn",
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "forceForward",
     outputs: [],
-    stateMutability: "nonpayable",
+    stateMutability: "payable",
     type: "function",
   },
   {
@@ -245,15 +232,28 @@ export const jsonInterface = [
   },
   {
     inputs: [],
-    name: "isSaleActive",
+    name: "maxSupply",
     outputs: [
       {
-        internalType: "bool",
+        internalType: "uint256",
         name: "",
-        type: "bool",
+        type: "uint256",
       },
     ],
     stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "_mintAmount",
+        type: "uint256",
+      },
+    ],
+    name: "mint",
+    outputs: [],
+    stateMutability: "payable",
     type: "function",
   },
   {
@@ -302,7 +302,13 @@ export const jsonInterface = [
     type: "function",
   },
   {
-    inputs: [],
+    inputs: [
+      {
+        internalType: "bool",
+        name: "_state",
+        type: "bool",
+      },
+    ],
     name: "pause",
     outputs: [],
     stateMutability: "nonpayable",
@@ -323,35 +329,9 @@ export const jsonInterface = [
   },
   {
     inputs: [],
-    name: "price",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [],
     name: "renounceOwnership",
     outputs: [],
     stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "_amount",
-        type: "uint256",
-      },
-    ],
-    name: "safeMint",
-    outputs: [],
-    stateMutability: "payable",
     type: "function",
   },
   {
@@ -427,11 +407,11 @@ export const jsonInterface = [
     inputs: [
       {
         internalType: "string",
-        name: "_newBaseURI",
+        name: "_newBaseExtension",
         type: "string",
       },
     ],
-    name: "setBaseURI",
+    name: "setBaseExtension",
     outputs: [],
     stateMutability: "nonpayable",
     type: "function",
@@ -439,12 +419,12 @@ export const jsonInterface = [
   {
     inputs: [
       {
-        internalType: "uint256",
-        name: "_newPrice",
-        type: "uint256",
+        internalType: "string",
+        name: "_newBaseURI",
+        type: "string",
       },
     ],
-    name: "setPrice",
+    name: "setBaseURI",
     outputs: [],
     stateMutability: "nonpayable",
     type: "function",
@@ -606,17 +586,22 @@ export const jsonInterface = [
     type: "function",
   },
   {
-    inputs: [],
-    name: "unpause",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "withdraw",
-    outputs: [],
-    stateMutability: "payable",
+    inputs: [
+      {
+        internalType: "address",
+        name: "_owner",
+        type: "address",
+      },
+    ],
+    name: "walletOfOwner",
+    outputs: [
+      {
+        internalType: "uint256[]",
+        name: "",
+        type: "uint256[]",
+      },
+    ],
+    stateMutability: "view",
     type: "function",
   },
 ];
