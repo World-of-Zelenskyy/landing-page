@@ -45,7 +45,7 @@ export default {
                   method: "net_version",
                 });
 
-                if (networkId == NETWORK_ID) {
+                if (networkId === NETWORK_ID) {
                   // eslint-disable-next-line no-undef
                   const myContract = new web3.eth.Contract(
                     this.jsonInterface,
