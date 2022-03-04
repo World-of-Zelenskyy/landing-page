@@ -94,6 +94,16 @@ a {
   color: #ffd700;
 }
 
+@media (min-width: 1200px) {
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl {
+    max-width: 1040px;
+  }
+}
+
 @media (min-width: 1400px) {
   .container,
   .container-lg,
