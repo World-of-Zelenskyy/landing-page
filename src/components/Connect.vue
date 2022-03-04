@@ -20,8 +20,9 @@ const Web3 = require("web3");
 
 import { jsonInterface } from "@/abi";
 
-const ETH_ADDRESS = "0x226085a82CD74e4A1778f73081D15Ed299bF1906";
-const NETWORK_ID = 4; // Staging (Rinkeby)
+const CONTRACT_ADDRESS = "0xCdc7A8119B8F6820AFAC6238120a294D52D38330";
+// const NETWORK_ID = 4; // Staging (Rinkeby)
+const NETWORK_ID = "1"; // Production (Mainnet)
 const { ethereum } = window;
 
 export default {
@@ -31,6 +32,13 @@ export default {
     jsonInterface,
   }),
   methods: {
+    toast_error(message) {
+      this.$toast.error(message, {
+        timeout: 10000,
+        position: "bottom-right",
+      });
+    },
+
     async connect() {
       {
         const isMetaMaskInstalled = ethereum && ethereum.isMetaMask;
@@ -49,29 +57,26 @@ export default {
                   // eslint-disable-next-line no-undef
                   const myContract = new web3.eth.Contract(
                     this.jsonInterface,
-                    ETH_ADDRESS,
+                    CONTRACT_ADDRESS,
                     {
                       from: accounts[0],
                     }
                   );
-                  myContract.methods.safeMint(1).send({
+                  myContract.methods.mint(1).send({
                     from: accounts[0],
-                    value: "10000000000000000",
+                    value: "30000000000000000",
                   });
                 } else {
-                  // TODO: Notify user something went wrong
-                  console.log("Connected to wrong network");
+                  this.toast_error("Connected to wrong network");
                 }
               } catch (error) {
-                // TODO: Notify user something went wrong
-                console.log(error);
+                this.toast_error(error.toString());
               }
             });
 
           return true;
         } else {
-          // TODO: Ask user to install Metamask
-          console.log("Metamask not installed");
+          this.toast_error("Metamask not installed");
         }
         return false;
       }
