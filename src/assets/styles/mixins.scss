@@ -1,0 +1,52 @@
+$phone: 390px;
+$phablet: 540px;
+$tablet: 760px;
+$tablet-narrow: 960px;
+$desktop: 1280px;
+$desktop-wide: 1450px;
+$desktop-huge: 1900px;
+
+$breakpoints: (
+        "phone": $phone,
+  //360px
+        "phablet": $phablet,
+  //540px
+        "tablet": $tablet,
+  //760px
+        "tablet-narrow": $tablet-narrow,
+  //960px
+        "desktop": $desktop,
+  //1280px
+        "desktop-wide": $desktop-wide,
+  //1450px
+        "desktop-huge": $desktop-huge,
+  //1900px,,,
+);
+
+//EXAMPLE:
+//  @include mq('desktop-huge'){
+// border:red;
+// }
+// or
+// @include mq('desktop-huge','max'){
+//   border:red;
+//   }
+
+@mixin mq($width, $type: min) {
+  @if map_has_key($breakpoints, $width) {
+    $width: map_get($breakpoints, $width);
+    @if $type==max {
+      $width: $width - 1px;
+    }
+    @media screen and (#{$type}-width: $width) {
+      @content;
+    }
+  } @else {
+    @if $type==max {
+      $width: $width - 1px;
+    }
+    @media screen and (#{$type}-width: $width) {
+      @content;
+    }
+  }
+}

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="app">
     <Header />
     <HeroCounter :count="status.raised_usd_count" />
     <TextThing header-text="#worldofzelenskyy">
@@ -84,14 +84,30 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 body {
   background: #0059c2;
   font-family: "Lato", sans-serif;
+  position: relative;
+  margin: 0;
+  text-size-adjust: 100%; // iOS on orientation change
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-style: normal;
+  backface-visibility: hidden;
 }
 
 a {
   color: #ffd700;
+  word-break: break-all;
+}
+
+.app {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 @media (min-width: 1200px) {

@@ -31,11 +31,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-.header__logo > img {
-  height: 3rem;
-}
-
+<style lang="scss" scoped>
 .raised_counter {
   font-size: 8rem;
   font-weight: bold;
@@ -47,24 +43,25 @@ export default {
 
 .header {
   padding-top: 4rem;
-}
-
-.header__links-item {
-  width: 3rem;
-  height: 3rem;
-  margin-left: 1rem;
-  background: #064c9f;
-  border-radius: 50%;
-  padding: 0.75rem;
-  display: flex;
-  justify-content: center;
-}
-
-.header__brand {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 21.875rem;
-  transform: translate(-50%, -50%);
+  &__logo > img {
+    height: 3rem;
+  }
+  &__links-item {
+    width: 3rem;
+    height: 3rem;
+    margin-left: 1rem;
+    background: #064c9f;
+    border-radius: 50%;
+    padding: 0.75rem;
+    display: flex;
+    justify-content: center;
+  }
+  &__brand {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 21.875rem;
+    transform: translate(-50%, -50%);
+  }
 }
 </style>
