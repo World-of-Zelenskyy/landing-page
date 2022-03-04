@@ -7,7 +7,7 @@
             Mint your NFT: <b>{{ mintedTokenCount }} / 10,000 NFTs</b>
           </div>
           <button class="btn btn-primary connect-button" @click="connect">
-            Connect with MetaMask
+            Mint for 0.03 ETH
           </button>
         </div>
       </div>
@@ -60,22 +60,13 @@ export default {
                     CONTRACT_ADDRESS,
                     {
                       from: accounts[0],
-                      gas: "30000000000000000",
                     }
                   );
-                  myContract.methods
-                    .mint(2)
-                    .estimateGas({
-                      from: accounts[0],
-                    })
-                    .then((gas) => {
-                      console.log(gas);
-                      myContract.methods.mint(1).send({
-                        from: accounts[0],
-                        value: "30000000000000000",
-                        gas: gas,
-                      });
-                    });
+                  myContract.methods.mint(1).send({
+                    from: accounts[0],
+                    value: "30000000000000000",
+                    gas: "160000",
+                  });
                 } else {
                   this.toast_error("Connected to wrong network");
                 }
